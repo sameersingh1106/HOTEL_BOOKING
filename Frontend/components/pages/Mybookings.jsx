@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react'
 import Title from '../components/Title'
 import { assets, userBookingDummyData } from '../assets/assets'
+import { useAppContext } from '../context/Appcontext'
+import { useState } from 'react'
+import toast from 'react-hot-toast'
+
 
 const Mybookings = () => {
 
@@ -26,7 +30,7 @@ const Mybookings = () => {
         if(user){
             fetchBookings();
         }
-    }, [user]) //dependency array with user to ensure bookings are fetched when user data is available
+    }, [user]) 
 
 
     return (
@@ -38,19 +42,16 @@ const Mybookings = () => {
             />
             
             <div className='max-w-6xl mt-8 w-full text-gray-800'>
-                {/* Table Header */}
                 <div className='hidden md:grid md:grid-cols-[3fr_2fr_1fr] w-full border-b border-gray-300 pb-2 font-medium text-base'>
                     <div>Hotel</div>
                     <div>Date & timings</div>
                     <div>Payments</div>
-                </div>
-
-                {/* Table Body (Mapped outside the header container) */}
+                </div> 
                 {bookings.map((booking) => (
                     <React.Fragment key={booking._id}>
                         <div className='grid grid-cols-1 md:grid-cols-[3fr_2fr_1fr] w-full border-b border-gray-300 py-6'>
                             
-                            {/* Column 1: Hotel Details */}
+                            
                             <div className='flex flex-col sm:flex-row items-start sm:items-center gap-4'>
                                 <img src={booking.room.images[0]} alt='hotel-img' className='w-full sm:w-44 rounded shadow object-cover'/>
                                 <div className='flex flex-col gap-1.5 sm:ml-4'>
@@ -70,7 +71,7 @@ const Mybookings = () => {
                                 </div>
                             </div>
 
-                            {/* Column 2: Date & Timings */}
+                            
                             <div className='flex flex-row md:flex-col justify-between md:justify-center md:gap-2 gap-8 mt-4 md:mt-0'>
                                 <div>
                                     <p className='font-medium text-sm md:text-base'>Check-In:</p>
@@ -86,7 +87,7 @@ const Mybookings = () => {
                                 </div>
                             </div>
 
-                            {/* Column 3: Status / Payments */}
+                            
                             <div className='flex flex-col items-start justify-center pt-3 md:pt-0'>
                                 <div className='flex items-center gap-2'>
                                     <div className={`w-3 h-3 rounded-full ${booking.status === "Confirmed" ? "bg-green-500" : booking.status === "Cancelled" ? "bg-red-500" : "bg-yellow-500"}`}></div>

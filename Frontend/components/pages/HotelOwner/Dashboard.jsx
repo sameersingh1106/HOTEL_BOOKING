@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Title from '@/components/Title';
 import { assets } from "@/assets/assets";
+// import { fetchDashboardData} from '../../../api/hotelOwnerApi';
+import { useAppContext } from '../../../context/Appcontext';
 
 const Dashboard = () => {
     const {currency, user, getToken, toast, axios} = useAppContext()
@@ -33,7 +35,7 @@ const Dashboard = () => {
                 align='left'
                 font='outfit'
                 title='Dashboard'
-                subTitle='Monitor your room listings, track bookings and analyze revenue - all in one place. Stay updated with real-time insights to ensure smooth operations.'
+                subtitle='Monitor your room listings, track bookings and analyze revenue - all in one place. Stay updated with real-time insights to ensure smooth operations.'
             />
 
             <div className='flex gap-4 my-8'>

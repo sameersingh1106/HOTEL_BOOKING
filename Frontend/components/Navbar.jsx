@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom'; 
-import { assets } from '../assets/assets';
+import { Link, useNavigate, uselocation } from 'react-router-dom'; 
+// import { assets } from '../assets/assets';
 import { useClerk, useUser, UserButton } from '@clerk/clerk-react';
-import { useAppContext } from '../context/Appcontext';
-import Dashboard from './pages/HotelOwner/Dashboard';
+// import { useAppContext } from '../context/Appcontext';
+// import Dashboard from './pages/HotelOwner/Dashboard';
+import {isOwner} from '../context/Appcontext';
+import {setIsScrolled} from '../context/Appcontext';
 
 
 const BookIcon = () => (

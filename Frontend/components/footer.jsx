@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import { assets } from '../assets/assets' // Ensure assets object is imported correctly
 
 const Footer = () => {

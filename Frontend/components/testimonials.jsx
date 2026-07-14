@@ -1,6 +1,6 @@
-import React from 'react'
-import Title from './Title'
-import {assets} from '@'
+import React from 'react';
+import Title from './Title';
+import {assets} from '@/assets/assets';
 
 const testimonials = () => {
   return (

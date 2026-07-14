@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Navbar from './components/Navbar';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from "./components/pages/Home";
@@ -11,7 +11,7 @@ import Layout from './components/pages/HotelOwner/Layout';
 import Dashboard from './components/pages/HotelOwner/Dashboard';
 import AddRoom from './components/pages/HotelOwner/AddRoom';
 import ListRoom from './components/pages/HotelOwner/ListRoom';
-import {toaster} from 'react-hot-toast'
+import {Toaster} from 'react-hot-toast'
 import { useAppContext } from './context/Appcontext';
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <div>
-      <toaster/>
+      <Toaster />
       {!isOwnerPath && <Navbar />}
       {showHotelReg && <HotelReg />}
       <div className="min-h-[70vh]">

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { assets, roomCommonData, facilityIcons } from '../assets/assets'; 
 import StarRating from '../components/StarRating';
 import { useAppContext } from '../context/AppContext'; 
 import { toast } from 'react-toastify';
+
 
 const RoomDetails = () => { 
   const { id } = useParams();
@@ -12,13 +13,12 @@ const RoomDetails = () => {
   const [mainImage, setMainImage] = useState(null);
   const [checkInDate, setCheckInDate] = useState('');   
   const [checkOutDate, setCheckOutDate] = useState(''); 
-  // const [guests, setGuests] = useState(1);
+  
   const [isAvailable, setIsAvailable] = useState(false);
 
   useEffect(() => {
   const foundRoom = rooms.find(r => r._id === id); 
-  if (foundRoom && (!room || room._id !== foundRoom._id)) {                                 
-    setRoom(foundRoom);
+  if (foundRoom && (!room || room._id !== foundRoom._id)) {setRoom(foundRoom);
     setMainImage(foundRoom.images[0]);
   }
 }, [rooms, id, room]);
@@ -29,7 +29,7 @@ const RoomDetails = () => {
         toast.error("Check-out date must be after check-in date");
         return;
       }
-      // FIXED: Separated correctly with standard parenthesis and semicolons
+      
       const { data } = await axios.post('/api/bookings/check-availability', { 
         roomId: id, 
         checkInDate, 
@@ -57,7 +57,7 @@ const RoomDetails = () => {
       if(!isAvailable){
         return checkAvailability();
       } else {
-        // FIXED: Added missing closing parenthesis ) for the axios.post method call
+        
         const { data } = await axios.post('/api/bookings/create',
           { roomId: id, checkInDate, checkOutDate, guests, paymentMethod: "Pay at Hotel" },
           { headers: { Authorization: `Bearer ${await getToken()}` } }
@@ -78,7 +78,7 @@ const RoomDetails = () => {
 
   return room && (
     <div className='pt-28 md:pt-35 px-4 md:px-16 lg:px-24 xl:px-32'>
-      {/* Header section */}
+      
       <div className='flex flex-col items-start md:items-center text-left gap-2'>
         <h1 className='text-3xl md:text-4xl font-playfair'>
           {room.hotel?.name} <span className='font-inter text-sm'>({room.roomType})</span> 
@@ -86,19 +86,19 @@ const RoomDetails = () => {
         <p className='text-xs font-inter py-1.5 px-3 text-white bg-orange-500 rounded-full'>20% OFF</p>
       </div>
 
-      {/* Ratings */}
+      
       <div className='flex items-center gap-1 mt-2'>
         <StarRating rating={room.rating} />
         <p className='ml-2 text-sm text-gray-600'>200+ reviews</p>
       </div>
 
-      {/* Location */}
+      
       <div className='flex items-center gap-1 text-gray-500 mt-2 text-sm'>
         <img src={assets?.locationIcon} alt='location-icon' className='w-4 h-4' />
         <span>{room.hotel?.address}</span>
       </div>
 
-      {/* Images Grid Showcase */}
+      
       <div className='flex flex-col lg:flex-row gap-6 mt-6'>
         <div className='lg:w-1/2 w-full'>
           <img src={mainImage} alt='room-main-img' className='w-full h-[400px] object-cover rounded-lg shadow-lg' />
@@ -117,11 +117,11 @@ const RoomDetails = () => {
         </div>
       </div>
 
-      {/* Details and Actions Section */}
+      
       <div className='flex flex-col md:flex-row md:justify-between items-start gap-10 mt-10'>
         <div className='flex flex-col gap-3 flex-1'>
           <h2 className='text-3xl font-playfair md:text-4xl'>Experience Luxury Like Never Before</h2>
-          {/* Amenities */}
+          
           <div className='flex flex-wrap items-center gap-4 mt-3 mb-6'>
             {room.amenities?.map((item, index) => (
               <div key={index} className='flex items-center gap-2 px-3 py-2 rounded-lg bg-[#F5F5FF]/70 w-max shadow-sm'>
@@ -132,7 +132,7 @@ const RoomDetails = () => {
           </div>
           <p className='text-gray-500 leading-relaxed'>{room.description}</p>
         </div>
-        {/* Price Display */}
+        
         <div className='text-right min-w-[150px]'>
           <p className='text-2xl font-semibold text-gray-900'>${room.pricePerNight}</p>
           <p className='text-gray-500 text-sm'>/ night</p>
@@ -147,7 +147,7 @@ const RoomDetails = () => {
         <div className='flex flex-col sm:flex-row items-start gap-6 text-gray-500 w-full md:w-auto'>
           <div className='flex flex-col w-full sm:w-auto'>
             <label htmlFor='checkin' className='font-medium text-gray-700 text-sm'>Check-In</label>
-            {/* FIXED: Removed duplicated inputs / merged attributes safely */}
+            
             <input 
               type='date' 
               id='checkin'
@@ -160,7 +160,7 @@ const RoomDetails = () => {
           </div>
           <div className='flex flex-col w-full sm:w-auto'>
             <label htmlFor='checkout' className='font-medium text-gray-700 text-sm'>Check-Out</label>
-            {/* FIXED: Removed duplicated inputs / merged attributes safely */}
+            
             <input 
               type='date' 
               id='checkout'
@@ -179,7 +179,7 @@ const RoomDetails = () => {
         </button>
       </form>
 
-      {/* Room Specifications/Policies */}
+      
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-12'>
         {roomCommonData?.map((spec, index) => (
           <div key={index} className='flex items-start gap-3 bg-gray-50 p-4 rounded-xl'>
@@ -192,7 +192,7 @@ const RoomDetails = () => {
         ))}
       </div>
 
-      {/* Disclaimer Text */}
+      
       <div className='max-w-3xl border-y border-gray-200 my-12 py-8 text-gray-500 text-sm leading-relaxed'>
         <p>
           Guests will be allocated on the ground floor according to availability. We will try our best to accommodate your
@@ -200,7 +200,7 @@ const RoomDetails = () => {
         </p>
       </div>
 
-      {/* Host Section */}
+      
       <div className='flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-16 bg-gray-50 p-6 rounded-xl shadow-sm'>
         <div className='flex items-center gap-4'>
           <img src={room.hotel?.owner?.image || assets?.defaultAvatar} alt='Host' className='h-14 w-14 md:h-16 md:w-16 rounded-full object-cover border-2 border-white shadow-md' />

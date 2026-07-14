@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import { roomsDummyData, exclusiveOffers, assets } from '../assets/assets'
 import HotelCart from './HotelCart'
 import Title from './Title'

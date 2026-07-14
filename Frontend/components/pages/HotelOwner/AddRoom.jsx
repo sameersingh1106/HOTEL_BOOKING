@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React{ useState } from 'react'
 import Title from '@/components/Title';
 import { assets } from "../../../assets/assets";
 import { useAppContext } from '../../../context/Appcontext';

@@ -1,7 +1,11 @@
 import react from 'react'
 import HotelCart from './HotelCart'
 import Title from './Title'
-import { useNavigate } from 'react-router-dom'
+import { navigate } from 'react-router-dom'
+import { useAppContext } from '../../../context/Appcontext'
+import { useState, useEffect } from 'react'
+
+import { filteredHotels,} from '../../../assets/assets'
 
 const RecommendedHotels = () => {
     const {rooms, SearchedCities} = useAppContext();
@@ -27,7 +31,8 @@ const RecommendedHotels = () => {
                 ))}
             </div>
             <button onclick={() => {navigate('/rooms'); scrollTo(0,0)}}
-            className='px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300'>View All Destinations</button>
+            className='px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300'>View All 
+            Destinations</button>
         </div>
     )
 }
