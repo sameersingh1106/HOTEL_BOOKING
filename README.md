@@ -7,25 +7,3 @@
 📱 Responsive Design: Fully optimized experience across desktop, tablet, and mobile devices.
 👤 User Dashboard: Manage past and upcoming bookings, download invoices, and view reservation statuses.
 
-🛠️ Tech Stack
-
-Frontend: [e.g., React.js / HTML5, CSS3, JavaScript]
-Backend: [e.g., Node.js / Express / Python Django / Java Spring]
-Database: [e.g., PostgreSQL / MongoDB / MySQL]
-Payment Integration: [e.g., Stripe API / PayPal SDK]
-
-🚀 Getting Started
-Follow these steps to set up and run the project locally.
-
-Prerequisites
-
-Make sure you have the following installed on your machine:
-Node.js (v16+ recommended)
-Git
-Database server (e.g., MongoDB / MySQL)
-
-Installation
-Clone the repository
-Bash
-git clone https://github.com/your-username/hotel-booking-system.git
-cd hotel-booking-system
