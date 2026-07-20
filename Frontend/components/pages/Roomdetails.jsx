@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { assets, roomCommonData, facilityIcons } from '../assets/assets'; 
-import StarRating from '../components/StarRating';
-import { useAppContext } from '../context/AppContext'; 
+import { assets, roomCommonData, facilityIcons } from '@/assets/assets'; 
+import StarRating from '@/components/StarRating';
+import { useAppContext } from '@/context/AppContext'; 
 import { toast } from 'react-toastify';
 
 
@@ -13,15 +13,20 @@ const RoomDetails = () => {
   const [mainImage, setMainImage] = useState(null);
   const [checkInDate, setCheckInDate] = useState('');   
   const [checkOutDate, setCheckOutDate] = useState(''); 
+  const [guests] = useState(1);
   
   const [isAvailable, setIsAvailable] = useState(false);
 
   useEffect(() => {
   const foundRoom = rooms.find(r => r._id === id); 
-  if (foundRoom && (!room || room._id !== foundRoom._id)) {setRoom(foundRoom);
-    setMainImage(foundRoom.images[0]);
+  if (foundRoom && (!room || room._id !== foundRoom._id)){
+    setTimeout(() => {
+      setRoom(foundRoom);
+      setMainImage(foundRoom.images[0]);
+    }, 0);
   }
 }, [rooms, id, room]);
+
 
   const checkAvailability = async () => {
     try {

@@ -1,8 +1,8 @@
-// import React, { useEffect } from 'react'
-import Navbar from "@/components/HotelOwner/Navbar";   
-import Sidebar from "@/components/HotelOwner/Sidebar";
+import { useEffect } from 'react'
+import Navbar from "@/components/pages/HotelOwner/Navbar";   
+import Sidebar from "@/components/pages/HotelOwner/Sidebar";
 import { Outlet } from 'react-router-dom'
-import { useAppContext } from '../../../context/Appcontext';
+import { useAppContext } from '@/context/Appcontext';
 
 const Layout = () => {
   const { isOwner, navigate } = useAppContext()
@@ -19,11 +19,11 @@ const Layout = () => {
       <div className='flex h-full'>
         <Sidebar />
         <div className='flex-1 p-4 pt-10 md:px-10 h-full'>
-          <Outlet /> {/* Changed from <outlet/> to <Outlet /> */}
+          <Outlet /> 
         </div>
       </div>
     </div>
   )
 }
 
-export default Layout
+export default Layout;

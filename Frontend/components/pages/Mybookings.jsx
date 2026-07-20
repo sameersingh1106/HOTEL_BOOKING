@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import Title from '../components/Title'
-import { assets, userBookingDummyData } from '../assets/assets'
-import { useAppContext } from '../context/Appcontext'
+import React, { useEffect, useCallback } from 'react'
+import Title from '@/components/Title'
+import { assets, userBookingsDummyData } from '@/assets/assets'
+import { useAppContext } from '@/context/Appcontext'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -9,9 +9,9 @@ import toast from 'react-hot-toast'
 const Mybookings = () => {
 
     const {axios, getToken, user} = useAppContext();
-    const [bookings, setBookings] = useState(userBookingDummyData);
+    const [bookings, setBookings] = useState(userBookingsDummyData);
 
-    const fetchBookings = async () => {
+    const fetchBookings = useCallback(async () => {
         try {
             const { data } = await axios.get('/api/bookings/mybookings', {
                 headers: { Authorization: `Bearer ${await getToken()}` }
@@ -24,14 +24,16 @@ const Mybookings = () => {
         } catch (error) {
             toast.error(error.message);
         }
-    }
+    }, [axios, getToken]);
 
     useEffect(() => {
-        if(user){
-            fetchBookings();
+    const loadData = async () => {
+        if (user) {
+            await fetchBookings();
         }
-    }, [user]) 
-
+    };
+    loadData();
+}, [user, fetchBookings]);
 
     return (
         <div className='py-28 md:pb-35 px-4 md:px-16 lg:px-24 xl:px-32'>

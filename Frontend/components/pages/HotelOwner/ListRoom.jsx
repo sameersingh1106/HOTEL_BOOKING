@@ -1,49 +1,53 @@
-import React, { useEffect, useState } from 'react'
-import Title from '../../components/Title'
-import { useAppContext } from '../../../context/AppContext' 
+import { useEffect, useState, useCallback } from 'react'
+import Title from '@/components/Title'
+import { useAppContext } from '@/context/AppContext' 
 import { toast } from 'react-hot-toast' 
 
 const ListRoom = () => {
   const [rooms, setRooms] = useState([]) 
   const { axios, getToken, user, currency } = useAppContext() 
 
-  const fetchRooms = async () => {
-    try {
-      const { data } = await axios.get('/api/rooms/owner', { 
-        headers: { Authorization: `Bearer ${await getToken()}` }
-      })
-      if (data.success) {
-        setRooms(data.rooms)
-      } else {
-        toast.error(data.message)
-      }
-    } catch (error) {
-      toast.error(error.message)
-    }
-  }
+  
+    const fetchRooms = useCallback(async () => {
+        try {
+            const { data } = await axios.get('/api/rooms/owner', {
+                headers: { Authorization: `Bearer ${await getToken()}` }
+            });
+            if (data.success) {
+                setRooms(data.rooms);
+            }
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Failed to fetch rooms");
+        }
+    }, [axios, getToken]);
 
-  const toggleAvailability = async (roomId) => { 
-    try { 
-      const { data } = await axios.post('/api/rooms/toggle-availability', 
-        { roomId },
-        { headers: { Authorization: `Bearer ${await getToken()}` } }
-      )
-      if (data.success) {
-        toast.success(data.message)
-        fetchRooms()
-      } else {
-        toast.error(data.message)
-      }
-    } catch (error) {
-      toast.error(error.message)
-    }
-  }
+    
+    useEffect(() => {
+        if (user) {
+            
+            setTimeout(() => {
+                fetchRooms();
+            }, 0);
+        }
+    }, [user, fetchRooms]);
 
-  useEffect(() => { 
-    if (user) {
-      fetchRooms()
-    }
-  }, [user])
+    
+    const toggleAvailability = async (roomId) => {
+        try {
+            const { data } = await axios.post('/api/rooms/toggle-availability', 
+                { roomId }, 
+                { headers: { Authorization: `Bearer ${await getToken()}` } }
+            );
+            if (data.success) {
+                toast.success(data.message);
+                fetchRooms(); 
+            } else {
+                toast.error(data.message);
+            }
+        } catch (error) {
+            toast.error(error.message);
+        }
+    };
 
   return (
     <div>

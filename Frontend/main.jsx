@@ -6,11 +6,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { ClerkProvider } from '@clerk/clerk-react' 
 import { AppProvider } from './context/AppContext.jsx' 
 
-const PUBLISHABLE_KEY = import.meta.env.VITE_PUBLISHABLE_KEY;
 
-if (!PUBLISHABLE_KEY) {
-  throw new Error('Add your Clerk publishable key to the .env file')
-}
+const PUBLISHABLE_KEY = import.meta.env.VITE_PUBLISHABLE_KEY || "pk_test_placeholder_key";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

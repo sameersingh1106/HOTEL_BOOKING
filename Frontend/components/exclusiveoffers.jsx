@@ -1,7 +1,6 @@
-// import React from 'react'
-import { roomsDummyData, exclusiveOffers, assets } from '../assets/assets'
+import { roomsDummyData, exclusiveOffers, assets } from '@/assets/assets'
 import HotelCart from './HotelCart'
-import Title from './Title'
+import Title from '@/components/Title'
 import { useNavigate } from 'react-router-dom'
 
 const ExclusiveOffers = () => {

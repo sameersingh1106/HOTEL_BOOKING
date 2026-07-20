@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Title from '@/components/Title';
 import { assets } from "@/assets/assets";
-// import { fetchDashboardData} from '../../../api/hotelOwnerApi';
-import { useAppContext } from '../../../context/Appcontext';
+import { useAppContext } from '@/context/Appcontext';
 
 const Dashboard = () => {
-    const {currency, user, getToken, toast, axios} = useAppContext()
+    const {user, getToken, toast, axios} = useAppContext()
     const [dashboardData, setDashboardData] = useState({
         totalBookings: 0,
         totalRevenue: 0,
@@ -25,8 +24,7 @@ const Dashboard = () => {
         }
     }
 
-    useEffect(()=>{
-        fetchDashboardData();
+    useEffect(()=>{ fetchDashboardData();
     },[user])
 
     return (

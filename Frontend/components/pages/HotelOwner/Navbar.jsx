@@ -1,7 +1,6 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-// import { assets } from '../assets/assets' 
-// import Userbutton from './Userbutton' 
+import {assets} from '@/assets'
+import { Userbutton } from '@clerk/clerk-react'
 
 const Navbar = () => {
   return (

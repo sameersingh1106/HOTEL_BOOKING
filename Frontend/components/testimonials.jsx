@@ -1,6 +1,5 @@
-import React from 'react';
 import Title from './Title';
-import {assets} from '@/assets/assets';
+
 
 const testimonials = () => {
   return (
@@ -45,7 +44,7 @@ const testimonials = () => {
                     <p className="text-lg text-gray-800 font-medium mt-5">James Washington</p>
                     <p className="text-xs">Content Marketing</p>
                 </div>
-                <p className="max-w-90 text-gray-500 mt-4">"{testimonial.review}"</p>
+                <p className="max-w-90 text-gray-500 mt-4">"{testimonials[0].review}"</p>
             </div>
         </div>   
     </div>

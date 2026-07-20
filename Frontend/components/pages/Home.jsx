@@ -1,8 +1,7 @@
-// import React from 'react'
-import Hero from '../components/Hero'
-import FeatureDestination from '../featureDestination'
-import ExclusiveOffers from '../exclusiceoffers'
-import RecommendedHotels from './HotelOwner/Recommendedhotel'
+import Hero from "../Hero";
+import FeatureDestination from "@/components/featureDestination";
+import ExclusiveOffers from "@/components/exclusiveoffers"; 
+import RecommendedHotels from "@/components/pages/HotelOwner/Recommendedhotel";
 
 const Home = () => {
   return (

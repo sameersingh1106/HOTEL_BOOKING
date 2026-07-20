@@ -1,9 +1,6 @@
-// import react from 'react'
-import HotelCart from './HotelCart'
-// import Title from './Title'
-// import { useNavigate } from 'react-router-dom'
-import { useAppContext } from '../../../context/Appcontext'
-import {roomsDummyData} from '../../../assets/assets'
+import HotelCart from '@/components/HotelCart'
+import { useAppContext } from '@/context/Appcontext'
+import {roomsDummyData} from '@/assets/assets'
 
 const FeatureDestination = () => {
     const {rooms, navigate} = useAppContext();
