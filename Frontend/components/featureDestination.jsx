@@ -1,6 +1,6 @@
-import HotelCart from '@/components/HotelCart'
-import { useAppContext } from '@/context/Appcontext'
-import {roomsDummyData} from '@/assets/assets'
+import HotelCart from '../../components/HotelCart'
+import { useAppContext } from '../context/Appcontext'
+import {roomsDummyData} from '../assets/assets'
 
 const FeatureDestination = () => {
     const {rooms, navigate} = useAppContext();

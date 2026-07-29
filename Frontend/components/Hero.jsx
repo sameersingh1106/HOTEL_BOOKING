@@ -1,9 +1,9 @@
-import { useAppContext } from '@/context/Appcontext'
+import { useAppContext } from '../context/Appcontext'
 import { useState} from 'react'
 
 const Hero = () => {
 
-    const [navigate, getToken, axios, setSearchedCities] = useAppContext()
+    const {navigate, getToken, axios, setSearchedCities} = useAppContext()
 
     const [destination, setDestination] = useState('')
     const onSearch = async(e)=>{

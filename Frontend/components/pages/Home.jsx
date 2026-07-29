@@ -1,7 +1,9 @@
 import Hero from "../Hero";
-import FeatureDestination from "@/components/featureDestination";
-import ExclusiveOffers from "@/components/exclusiveoffers"; 
-import RecommendedHotels from "@/components/pages/HotelOwner/Recommendedhotel";
+import FeatureDestination from "../../components/featureDestination.jsx";
+import ExclusiveOffers from "../../components/exclusiveoffers.jsx"; 
+import RecommendedHotels from "../../components/pages/HotelOwner/Recommendedhotel.jsx";
+import Testimonials from '../testimonials.jsx';
+import Newsletter from '../newsletter';
 
 const Home = () => {
   return (
@@ -11,8 +13,8 @@ const Home = () => {
       <FeatureDestination>
         <ExclusiveOffers />
       </FeatureDestination>
-      <testimonials />
-      <newsletter />
+      <Testimonials />
+      <Newsletter />
 
     </div>
   )

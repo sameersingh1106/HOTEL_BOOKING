@@ -1,10 +1,9 @@
-import Title from './Title';
+import Title from './Title.jsx';
 
-
-const testimonials = () => {
+const Testimonials = () => {
   return (
     <div className='flex flex-col items-center px-6 md:px-16 lg:px-24 bg-slate-50 py-20'>
-      <Title title='What out guesta say' subtitle='Discover why discerning travelera' /> 
+      <Title title='What our guests say' subtitle='Discover why discerning travelers' /> 
         <div className="flex flex-col items-center text-center">
             <h1 className="text-4xl font-bold max-w-[740px] mb-[72px]">Trusted by <span className="text-blue-600">30k+</span> world class companies & design teams</h1>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -16,7 +15,7 @@ const testimonials = () => {
                             <path d="m11.584 13.872 1.752-3.288 1.104-.288a2.7 2.7 0 0 1-.432.576.76.76 0 0 1-.552.24q-.672 0-1.248-.576t-.576-1.464q0-.936.624-1.584.648-.672 1.584-.672.888 0 1.536.672.672.648.672 1.584 0 .384-.168.912-.144.504-.576 1.296l-1.92 3.552zm-5.4 0 1.752-3.288 1.08-.288a2.2 2.2 0 0 1-.408.576.76.76 0 0 1-.552.24q-.696 0-1.272-.576t-.576-1.464q0-.936.624-1.584.648-.672 1.584-.672.888 0 1.536.672.672.648.672 1.584 0 .384-.144.912-.144.504-.576 1.296L7.96 14.832z" fill="#fff"/>
                         </svg>
                     </div>
-                    <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidihunt ut labore et dolore magna aligua. Ut enim ad minim ieniam, quis nostrud  aliquip”</p>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud  aliquip"</p>
                     <p className="text-lg text-gray-800 font-medium mt-5">Donald Jackman</p>
                     <p className="text-xs">Content Creator</p>
                 </div>
@@ -28,7 +27,7 @@ const testimonials = () => {
                             <path d="m11.584 13.872 1.752-3.288 1.104-.288a2.7 2.7 0 0 1-.432.576.76.76 0 0 1-.552.24q-.672 0-1.248-.576t-.576-1.464q0-.936.624-1.584.648-.672 1.584-.672.888 0 1.536.672.672.648.672 1.584 0 .384-.168.912-.144.504-.576 1.296l-1.92 3.552zm-5.4 0 1.752-3.288 1.08-.288a2.2 2.2 0 0 1-.408.576.76.76 0 0 1-.552.24q-.696 0-1.272-.576t-.576-1.464q0-.936.624-1.584.648-.672 1.584-.672.888 0 1.536.672.672.648.672 1.584 0 .384-.144.912-.144.504-.576 1.296L7.96 14.832z" fill="#fff"/>
                         </svg>
                     </div>
-                    <p>“Lorem ipsum dolor sit amet, consectetur adipissing elit, sed do eiusmod tempor incididunt ut labore et dolore uagna aliqua. Ut enim ad minim ceniam, quis nostrud  aliquip”</p>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud  aliquip"</p>
                     <p className="text-lg text-gray-800 font-medium mt-5">Richard Nelson</p>
                     <p className="text-xs">Content Writer</p>
                 </div>
@@ -40,15 +39,14 @@ const testimonials = () => {
                             <path d="m11.584 13.872 1.752-3.288 1.104-.288a2.7 2.7 0 0 1-.432.576.76.76 0 0 1-.552.24q-.672 0-1.248-.576t-.576-1.464q0-.936.624-1.584.648-.672 1.584-.672.888 0 1.536.672.672.648.672 1.584 0 .384-.168.912-.144.504-.576 1.296l-1.92 3.552zm-5.4 0 1.752-3.288 1.08-.288a2.2 2.2 0 0 1-.408.576.76.76 0 0 1-.552.24q-.696 0-1.272-.576t-.576-1.464q0-.936.624-1.584.648-.672 1.584-.672.888 0 1.536.672.672.648.672 1.584 0 .384-.144.912-.144.504-.576 1.296L7.96 14.832z" fill="#fff"/>
                         </svg>
                     </div>
-                    <p>“Lorem ipsum dolor sit amet, consectetur adippiscing elit, sed do eiusmod tempor incidiunt ut labore et dolore magna aliqua. Ut enim ad qinim veniam, quis nostrud  aliquip”</p>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud  aliquip"</p>
                     <p className="text-lg text-gray-800 font-medium mt-5">James Washington</p>
                     <p className="text-xs">Content Marketing</p>
                 </div>
-                <p className="max-w-90 text-gray-500 mt-4">"{testimonials[0].review}"</p>
             </div>
         </div>   
     </div>
   )
 }
 
-export default testimonials
+export default Testimonials

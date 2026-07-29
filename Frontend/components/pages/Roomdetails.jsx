@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { assets, roomCommonData, facilityIcons } from '@/assets/assets'; 
-import StarRating from '@/components/StarRating';
-import { useAppContext } from '@/context/AppContext'; 
+// import StarRating from '../../components/starRating';
+import { useAppContext } from '../../context/Appcontext'; 
 import { toast } from 'react-toastify';
 
 
@@ -93,7 +93,7 @@ const RoomDetails = () => {
 
       
       <div className='flex items-center gap-1 mt-2'>
-        <StarRating rating={room.rating} />
+        <starRating rating={room.rating} />
         <p className='ml-2 text-sm text-gray-600'>200+ reviews</p>
       </div>
 
@@ -212,7 +212,7 @@ const RoomDetails = () => {
           <div>
             <p className='font-semibold text-gray-900 text-lg'>Hosted by {room.hotel?.name}</p>
             <div className='flex items-center gap-1 text-sm text-gray-500 mt-0.5'>
-              <StarRating rating={4.8} />
+              <starRating rating={4.8} />
               <span className='ml-1'>(200+ reviews)</span>
             </div>
           </div>

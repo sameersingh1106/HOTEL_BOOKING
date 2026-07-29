@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react'
-import Title from '@/components/Title'
+import Title from '../../components/Title.jsx'
 import { assets, userBookingsDummyData } from '@/assets/assets'
 import { useAppContext } from '@/context/Appcontext'
 import { useState } from 'react'

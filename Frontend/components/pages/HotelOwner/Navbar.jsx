@@ -1,19 +1,14 @@
 import { Link } from 'react-router-dom'
-import {assets} from '@/assets'
-import { Userbutton } from '@clerk/clerk-react'
+import { assets } from '../../../assets/assets'
+import { UserButton } from '@clerk/clerk-react'
 
 const Navbar = () => {
   return (
     <div className='flex items-center justify-between px-4 md:px-8 border-b border-gray-300 py-3 bg-white transition-all duration-300'>
-      
-      
       <Link to='/'>
         <img src={assets.logo} alt="logo" className='h-9 invert opacity-90'/> 
       </Link>
-      
-      
-      <Userbutton className='bg-gray-200 text-gray-700 px-3 py-1 rounded hover:bg-gray-300 transition-colors' />
-      
+      <UserButton className='bg-gray-200 text-gray-700 px-3 py-1 rounded hover:bg-gray-300 transition-colors' />
     </div>
   )
 }

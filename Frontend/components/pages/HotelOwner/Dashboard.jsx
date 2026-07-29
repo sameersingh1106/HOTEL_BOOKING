@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import Title from '@/components/Title';
-import { assets } from "@/assets/assets";
-import { useAppContext } from '@/context/Appcontext';
+import Title from '../../Title.jsx';
+import { assets } from '../../../assets/assets';
+import { useAppContext } from '../../../context/Appcontext';
 
 const Dashboard = () => {
     const {user, getToken, toast, axios} = useAppContext()
@@ -24,7 +24,7 @@ const Dashboard = () => {
         }
     }
 
-    useEffect(()=>{ fetchDashboardData();
+    useEffect(()=>{fetchDashboardData();
     },[user])
 
     return (

@@ -1,7 +1,7 @@
-import HotelCart from '@/components/HotelCart';
-import Title from '@/components/Title'; 
+import HotelCart from '../../../components/HotelCart';
+import Title from '../../../components/Title'; 
 import { useNavigate } from 'react-router-dom'; 
-import { useAppContext } from '@/context/Appcontext';
+import { useAppContext } from '../../../context/Appcontext';
 import { useState, useEffect, useCallback } from 'react';
 
 

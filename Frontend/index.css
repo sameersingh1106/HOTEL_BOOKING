@@ -3,8 +3,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #2563eb;
-  --color-secondary: #fbbf24;
+  --color-primary: #1a56db;      /* deeper, richer blue than default */
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #d4af37;    /* muted gold — reads "luxury hotel" */
+  --color-accent: #f0f9ff;       /* very light blue for section backgrounds */
+  --color-ink: #1c1c1c;          /* near-black for headings, softer than pure black */
+  --color-muted: #6b7280;        /* body text gray */
+  --color-surface: #fafaf9;      /* warm off-white instead of stark white */
 }
 
 *{
