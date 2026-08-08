@@ -1,17 +1,17 @@
-import { useEffect } from 'react'
-import Navbar from "./Navbar";   
-import Sidebar from "./Sidebar";
-import { Outlet } from 'react-router-dom'
-import { useAppContext } from '../../../context/Appcontext';
+import { useEffect } from 'react';
+import Navbar from "./OwnerNavbar"; // Same folder (if renamed) or "./Navbar"
+import Sidebar from "./Sidebar";     // FIXED: Same folder (HotelOwner)
+import { Outlet } from 'react-router-dom';
+import { useAppContext } from '../../../context/Appcontext'; // FIXED: Up 3 levels to Frontend
 
 const Layout = () => {
-  const { isOwner, navigate } = useAppContext()
+  const { isOwner, navigate } = useAppContext();
 
   useEffect(() => {
     if (!isOwner) {
-      navigate('/')
+      navigate('/');
     }
-  }, [isOwner, navigate])
+  }, [isOwner, navigate]);
   
   return (
     <div className='flex flex-col h-screen'>
@@ -23,7 +23,7 @@ const Layout = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Layout;

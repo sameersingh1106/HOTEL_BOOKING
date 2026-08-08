@@ -1,22 +1,19 @@
-import { roomsDummyData, exclusiveOffers, assets } from '@/assets/assets'
-import HotelCart from './HotelCart'
-import Title from '../../components/Title'
-import { useNavigate } from 'react-router-dom'
+import HotelCart from './HotelCart';
+import Title from './Title';
+import { roomsDummyData, exclusiveOffers, assets } from '../assets/assets';
+import { useNavigate } from 'react-router-dom'; // <-- ADDED THIS IMPORT
 
 const ExclusiveOffers = () => {
     const navigate = useNavigate();
 
     return (
         <div>
-
             <div className='flex flex-col md:flex-row items-center justify-between w-full'>
-
                 <Title
                     align='left'
                     title='Exclusive Offers'
                     subtitle='Discover our handpicked selection of exceptional properties around the world, offering unparalleled luxury and unforgettable experiences'
                 />
-
             </div>
 
             <div className='flex flex-wrap items-center justify-between gap-4 mb-8'>
@@ -28,7 +25,7 @@ const ExclusiveOffers = () => {
             <button
                 onClick={() => {
                     navigate('/rooms');
-                    scrollTo(0, 0);
+                    window.scrollTo(0, 0);
                 }}
                 className='group flex items-center gap-2'
             >
@@ -77,9 +74,8 @@ const ExclusiveOffers = () => {
                     </div>
                 ))}
             </div>
-
         </div>
     )
 }
 
-export default ExclusiveOffers
+export default ExclusiveOffers;

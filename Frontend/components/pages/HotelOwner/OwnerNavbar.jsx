@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom'
-import { assets } from '../../../assets/assets'
-import { UserButton } from '@clerk/clerk-react'
+import { Link } from 'react-router-dom';
+// FIXED: Changed ../../ to ../../../
+import { assets } from '../../../assets/assets'; 
+import { UserButton } from '@clerk/clerk-react';
 
-const Navbar = () => {
+const OwnerNavbar = () => { // Renamed component function to match file name as good practice
   return (
     <div className='flex items-center justify-between px-4 md:px-8 border-b border-gray-300 py-3 bg-white transition-all duration-300'>
       <Link to='/'>
@@ -10,7 +11,7 @@ const Navbar = () => {
       </Link>
       <UserButton className='bg-gray-200 text-gray-700 px-3 py-1 rounded hover:bg-gray-300 transition-colors' />
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default OwnerNavbar;

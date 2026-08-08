@@ -13,6 +13,7 @@ import ListRoom from './components/pages/HotelOwner/ListRoom';
 import {Toaster} from 'react-hot-toast'
 import { useAppContext } from './context/Appcontext';
 
+
 const App = () => {
   const isOwnerPath = useLocation().pathname.includes('owners');
   const { showHotelReg } = useAppContext();
