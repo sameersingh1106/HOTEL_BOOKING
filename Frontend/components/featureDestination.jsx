@@ -1,7 +1,7 @@
 import HotelCart from './HotelCart';
-import Title from './Title'; // Same folder!
-import { useAppContext } from '../context/Appcontext'; // Up 1 level to Frontend, then into context
-import { roomsDummyData } from '../assets/assets'; // Up 1 level to Frontend, then into assets
+import Title from './Title'; 
+import { useAppContext } from '../context/Appcontext'; 
+import { roomsDummyData } from '../assets/assets'; 
 
 const FeatureDestination = () => {
     const { rooms, navigate } = useAppContext();
@@ -13,19 +13,17 @@ const FeatureDestination = () => {
             
             <Title 
                 title="feature destination" 
-                subtitle="Discover our handpicked selection of exceptional properties around the world, offering unparalleled luxury and unforgettable experiences" 
-            />
+                subtitle="Discover our handpicked selection of exceptional properties around the world, offering unparalleled luxury and unforgettable experiences" />
 
             <div className='flex flex-wrap items-center justify-between gap-4 mb-8'>
                 {roomsDummyData.slice(0,4).map((room, index) => (
-                    <HotelCart key={index} room={room} index={index} />
+                    <HotelCart key={index} room={room} index={index}/>
                 ))}
             </div>
             
             <button 
                 onClick={() => { navigate('/rooms'); window.scrollTo(0,0); }}
-                className='px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300'
-            >
+                className='px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300'>
                 View All Destinations
             </button>
         </div>

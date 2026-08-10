@@ -1,11 +1,10 @@
 import HotelCart from './HotelCart';
 import Title from './Title';
 import { roomsDummyData, exclusiveOffers, assets } from '../assets/assets';
-import { useNavigate } from 'react-router-dom'; // <-- ADDED THIS IMPORT
+import { useNavigate } from 'react-router-dom'; 
 
 const ExclusiveOffers = () => {
     const navigate = useNavigate();
-
     return (
         <div>
             <div className='flex flex-col md:flex-row items-center justify-between w-full'>
