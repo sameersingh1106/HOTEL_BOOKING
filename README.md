@@ -13,7 +13,7 @@ QuickStay is a full-stack hotel booking platform that lets users search, book, a
 ## 🛠️ Tech Stack
 
 **Frontend**
-- React
+- React (Vite)
 - Tailwind CSS
 
 **Backend**
@@ -24,26 +24,67 @@ QuickStay is a full-stack hotel booking platform that lets users search, book, a
 **Authentication**
 - Clerk (registration, email verification, session management, webhooks)
 
+**Media & Email**
+- Cloudinary (image uploads)
+- Nodemailer (transactional emails)
+
 **Payments**
 - Payment gateway integration for secure online transactions
 
 ## 📂 Project Structure
 
 ```
-QuickStay/
-├── client/             # React frontend
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── ...
-├── server/             # Express backend
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
+Hotel-Booking/
+├── Backend/
 │   ├── config/
-│   └── ...
-├── .env.example
-├── .gitignore
+│   │   ├── cloudinary.js
+│   │   ├── db.js
+│   │   └── nodemailer.js
+│   ├── controllers/
+│   ├── middleware/
+│   │   ├── authmiddleware.js
+│   │   └── uploadMiddleware.js
+│   ├── models/
+│   │   ├── Booking.js
+│   │   ├── Hotel.js
+│   │   ├── Room.js
+│   │   └── user.js
+│   ├── routes/
+│   │   ├── Bookingroutes.js
+│   │   ├── Hotelroutes.js
+│   │   ├── Roomroutes.js
+│   │   └── userRoutes.js
+│   ├── .env
+│   ├── .gitignore
+│   ├── package.json
+│   └── Server.js
+├── Frontend/
+│   ├── assets/
+│   ├── components/
+│   │   ├── pages/
+│   │   ├── exclusiveoffers.jsx
+│   │   ├── featureDestination.jsx
+│   │   ├── footer.jsx
+│   │   ├── Hero.jsx
+│   │   ├── HotelCart.jsx
+│   │   ├── HotelReg.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── newsletter.jsx
+│   │   ├── starRating.jsx
+│   │   ├── testimonials.jsx
+│   │   └── Title.jsx
+│   ├── context/
+│   ├── .env
+│   ├── .gitignore
+│   ├── App.jsx
+│   ├── eslint.config.js
+│   ├── index.css
+│   ├── index.html
+│   ├── main.jsx
+│   ├── package.json
+│   ├── vite.config.js
+│   └── README.md
+├── LICENSE
 └── README.md
 ```
 
@@ -59,42 +100,52 @@ QuickStay/
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/sameersingh1106/QuickStay.git
-   cd QuickStay
+   git clone https://github.com/sameersingh1106/Hotel-Booking.git
+   cd Hotel-Booking
    ```
 
 2. Install dependencies
    ```bash
-   # Frontend
-   cd client
+   # Backend
+   cd Backend
    npm install
 
-   # Backend
-   cd ../server
+   # Frontend
+   cd ../Frontend
    npm install
    ```
 
 3. Set up environment variables
 
-   Create a `.env` file in the `server` directory based on `.env.example`:
+   Create a `.env` file in `Backend/` and another in `Frontend/` based on `.env.example` (add one if it doesn't exist yet):
    ```env
+   # Backend/.env
    PORT=5000
    MONGODB_URI=your_mongodb_connection_string
    CLERK_SECRET_KEY=your_clerk_secret_key
-   CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+   CLOUDINARY_API_KEY=your_cloudinary_api_key
+   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+   SMTP_USER=your_email
+   SMTP_PASS=your_email_app_password
    PAYMENT_GATEWAY_KEY=your_payment_gateway_key
    ```
+   ```env
+   # Frontend/.env
+   VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+   VITE_BACKEND_URL=http://localhost:5000
+   ```
 
-   > ⚠️ Never commit your `.env` file. Make sure it's listed in `.gitignore`.
+   > ⚠️ Never commit your `.env` files. Make sure both are listed in `.gitignore`.
 
 4. Run the development servers
    ```bash
    # Backend
-   cd server
+   cd Backend
    npm run dev
 
    # Frontend (in a separate terminal)
-   cd client
+   cd Frontend
    npm run dev
    ```
 
@@ -106,7 +157,9 @@ QuickStay/
 |---|---|
 | `MONGODB_URI` | MongoDB connection string |
 | `CLERK_SECRET_KEY` | Clerk secret key for backend auth |
-| `CLERK_PUBLISHABLE_KEY` | Clerk publishable key for frontend |
+| `VITE_CLERK_PUBLISHABLE_KEY` | Clerk publishable key for frontend |
+| `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` | Cloudinary credentials for image uploads |
+| `SMTP_USER` / `SMTP_PASS` | Nodemailer email credentials |
 | `PAYMENT_GATEWAY_KEY` | API key for the payment provider |
 
 ## 🤝 Contributing
@@ -121,3 +174,5 @@ This project is licensed under the MIT License.
 
 **Sameer Singh**
 - GitHub: [@sameersingh1106](https://github.com/sameersingh1106)
+- Repo: [Hotel-Booking](https://github.com/sameersingh1106/Hotel-Booking)
+
