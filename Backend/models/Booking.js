@@ -6,7 +6,7 @@ const BookingSchema = new mongoose.Schema({
     Hotel: {type: String, ref: "Hotel", required: true},
     CheckInDate: {type: Date,  required: true},
     CheckOutDate: {type: Date, required: true},
-    totalPrice: (type: Number, required: true),
+    totalPrice: { type: Number, required: true },
     guests: {type: Number, required: true},
     status: {type: String, enum: ["pending", "confirmed", "cancelled"],
         default: "pending"

@@ -3,7 +3,8 @@ import User from "../models/User.js";
 
 export const registerHotel = async(req, res)=>{
     try{
-        const (name, adress, contact, city)= req.body;
+       
+        const { name, address, contact, city } = req.body;
         const owner = req.user._id
 
         const hotel = await Hotel.findOne({owner})
@@ -11,9 +12,9 @@ export const registerHotel = async(req, res)=>{
             return res.json({ success: false, message: "Hotel Already Registered"})
         }
 
-        await Hotel.create({name, address, contact, city, Owner});
+        await Hotel.create({name, address, contact, city, owner});
 
-        await User.findbyIdAndUpdate(owner, {role: "hotelOwner"});
+        await User.findByIdAndUpdate(owner, {role: "hotelOwner"});
 
         res.json({success: true, message: "Hotel Registered Successfully"})
 
